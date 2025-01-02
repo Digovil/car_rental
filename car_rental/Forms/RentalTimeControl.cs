@@ -76,5 +76,10 @@ namespace car_rental.Forms
         {
 
         }
+
+        private void RentalTimeControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

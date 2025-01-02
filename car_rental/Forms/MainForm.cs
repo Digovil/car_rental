@@ -45,6 +45,9 @@ namespace car_rental.Forms
             LoadRentalTimeView();
         }
 
+        private void contentPanel_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
