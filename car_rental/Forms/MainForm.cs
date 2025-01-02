@@ -49,5 +49,10 @@ namespace car_rental.Forms
         {
 
         }
+
+        private void contentPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

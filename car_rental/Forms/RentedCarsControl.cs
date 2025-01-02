@@ -17,7 +17,7 @@ namespace car_rental.Forms
 
         private void RentedCarsControl_Load(object sender, EventArgs e)
         {
-            // Opcional: Inicializar con datos predefinidos o configurar el DataGridView.
+            SearchButton_Click(sender, e);
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -25,12 +25,19 @@ namespace car_rental.Forms
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-                    SELECT C.CEDULA, C.NOMBRE, A.FECHA AS 'FECHA ALQUILER', 
-                           A.TIEMPO AS 'TIEMPO ALQUILADO', A.SALDO, CA.PLACA, CA.MARCA
-                    FROM ALQUILER A
-                    JOIN CLIENTE C ON A.ID_CLIENTE = C.ID_CLIENTE
-                    JOIN CARRO CA ON A.ID_CARRO = CA.ID_CARRO
-                    WHERE A.FECHA BETWEEN @StartDate AND @EndDate";
+                                SELECT 
+                                    C.CEDULA, 
+                                    C.NOMBRE, 
+                                    A.FECHA AS 'FECHA ALQUILER', 
+                                    CAST(A.TIEMPO AS VARCHAR) + ' ' + CASE WHEN A.TIEMPO = 1 THEN 'día' ELSE 'días' END AS 'TIEMPO ALQUILADO', 
+                                    A.SALDO, 
+                                    CA.PLACA, 
+                                    CA.MARCA
+                                FROM ALQUILER A
+                                JOIN CLIENTE C ON A.ID_CLIENTE = C.ID_CLIENTE
+                                JOIN CARRO CA ON A.ID_CARRO = CA.ID_CARRO
+                                WHERE A.FECHA BETWEEN @StartDate AND @EndDate";
+
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@StartDate", startDatePicker.Value.Date);

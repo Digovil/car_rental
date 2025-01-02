@@ -130,6 +130,7 @@ namespace car_rental.Forms
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(701, 569);
             this.contentPanel.TabIndex = 0;
+            this.contentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.contentPanel_Paint_1);
             // 
             // MainForm
             // 
