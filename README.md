@@ -40,7 +40,7 @@ car_rental_db
 - Modelo entidad-relación implementado en SQL Server.
 - Se incorporaron campos adicionales a las entidades: `id_nombre_entidad` (autoincremental), `created_at` y `updated_at`.
 
-![Modelo entidad-relación](https://via.placeholder.com/800x400?text=Modelo+Entidad-Relaci%C3%B3n)
+![Modelo entidad-relación](https://github.com/user-attachments/assets/86d958d0-0f06-405d-ae7f-5fd444eb8a66)
 
 #### Consultas Principales
 1. **Número de alquileres de un carro desde una fecha específica.**
