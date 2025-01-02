@@ -288,12 +288,6 @@ GO
 
 -- 1.2. Cuantos alquileres ha tenido un carro específico desde una fecha específica.
 
--- Listado de alquileres de un carro específico por placa desde una fecha
-SELECT A.FECHA, A.TIEMPO, A.VALORTOTAL, A.SALDO, A.ABONO_INICIAL, A.DEVUELTO
-FROM ALQUILER A
-INNER JOIN CARRO C ON A.ID_CARRO = C.ID_CARRO
-WHERE C.PLACA = 'ABC123' AND A.FECHA >= '2025-01-01';
-
 -- Contabilidad de alquieres de un carro específico por placa desde una fecha
 SELECT C.PLACA, COUNT(*) as TOTAL_ALQUIELERES
 FROM ALQUILER A
@@ -301,11 +295,12 @@ INNER JOIN CARRO C ON A.ID_CARRO = C.ID_CARRO
 WHERE C.PLACA = 'ABC123' AND A.FECHA >= '2025-01-01'
 GROUP BY C.PLACA;
 
+
 -- 1.3. Total de saldo en un día específico.
 
 SELECT SUM(A.SALDO) AS TOTAL_SALDO
 FROM ALQUILER A
-WHERE A.FECHA = '2025-01-01';
+WHERE A.FECHA = '2025-01-02';
 
 
 -- 1.4. Consulta listando: CEDULA | NOMBRE | FECHA ALQUILER | TIEMPO ALQUILADO | SALDO | PLACA | MARCA
@@ -324,31 +319,31 @@ WHERE NOT EXISTS (
     SELECT 1
     FROM ALQUILER A
     WHERE A.ID_CLIENTE = C.ID_CLIENTE
-      AND A.FECHA BETWEEN '2025-01-01' AND '2025-01-31'
+      AND A.FECHA BETWEEN '2025-01-02' AND '2025-01-31'
 );
 
 
 -- 1.6. Consulta desde fecha específica.
 
--- Pagos relacionados con alquileres en una fecha determinada.
+-- Pagos relacionados con alquileres desde una fecha determinada.
 SELECT A.FECHA AS FECHA_ALQUILER, 
        COUNT(P.ID_PAGO) AS CANTIDAD_PAGOS, 
        SUM(P.VALOR) AS TOTAL_PAGADO, 
        MAX(P.VALOR) AS MAXIMO_VALOR
 FROM ALQUILER A
 LEFT JOIN PAGOS P ON A.ID_ALQUILER = P.ID_ALQUILER
-WHERE A.FECHA = '2025-01-01'
+WHERE A.FECHA >= '2025-01-02'
 GROUP BY A.FECHA;
 
 -- 1.7. Consolidado por carros en un período específico.
 
--- Este período está entre 1 de enero hasta el día 3 de enero.
+-- Este período está entre 2 de enero hasta el día 3 de enero.
 SELECT CA.PLACA AS CODCARRO, CA.MODELO, CA.MARCA, CA.COSTO,
        COUNT(A.ID_ALQUILER) AS CANTIDAD_ALQUILERES,
        SUM(A.VALORTOTAL) AS TOTAL_ALQUILERES
 FROM CARRO CA
 LEFT JOIN ALQUILER A ON CA.ID_CARRO = A.ID_CARRO
-WHERE A.FECHA BETWEEN '2025-01-01' AND '2025-01-03'
+WHERE A.FECHA BETWEEN '2025-01-02' AND '2025-01-03'
 GROUP BY CA.PLACA, CA.MODELO, CA.MARCA, CA.COSTO;
 
 
@@ -362,5 +357,7 @@ JOIN ALQUILER A ON C.ID_CLIENTE = A.ID_CLIENTE
 JOIN CARRO CA ON A.ID_CARRO = CA.ID_CARRO
 WHERE C.CEDULA = '4567891234'
 GROUP BY C.CEDULA, C.NOMBRE, CA.PLACA, CA.MODELO, CA.MARCA, CA.COSTO;
+
+
 
 
