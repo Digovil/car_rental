@@ -124,6 +124,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RentalTimeControl";
             this.Size = new System.Drawing.Size(761, 540);
+            this.Load += new System.EventHandler(this.RentalTimeControl_Load);
             this.dailyRentalsCard.ResumeLayout(false);
             this.dailyRentalsCard.PerformLayout();
             this.monthlyRentalsCard.ResumeLayout(false);

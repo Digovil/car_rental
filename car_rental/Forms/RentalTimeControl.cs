@@ -66,5 +66,10 @@ namespace car_rental.Forms
                 MessageBox.Show($"Error actualizando los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void RentalTimeControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
