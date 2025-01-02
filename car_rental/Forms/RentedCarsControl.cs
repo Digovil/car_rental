@@ -25,8 +25,8 @@ namespace car_rental.Forms
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-                    SELECT C.CEDULA, C.NOMBRE, A.FECHA AS FECHA_ALQUILER, 
-                           A.TIEMPO AS TIEMPO_ALQUILADO, A.SALDO, CA.PLACA, CA.MARCA
+                    SELECT C.CEDULA, C.NOMBRE, A.FECHA AS 'FECHA ALQUILER', 
+                           A.TIEMPO AS 'TIEMPO ALQUILADO', A.SALDO, CA.PLACA, CA.MARCA
                     FROM ALQUILER A
                     JOIN CLIENTE C ON A.ID_CLIENTE = C.ID_CLIENTE
                     JOIN CARRO CA ON A.ID_CARRO = CA.ID_CARRO
@@ -41,6 +41,11 @@ namespace car_rental.Forms
                 adapter.Fill(dt);
                 dataGridView.DataSource = dt;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

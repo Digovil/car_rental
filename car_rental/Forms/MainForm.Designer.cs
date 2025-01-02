@@ -43,6 +43,7 @@
             this.rentalTimeBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.rentalTimeBtn.FlatAppearance.BorderSize = 0;
             this.rentalTimeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentalTimeBtn.Font = new System.Drawing.Font("Segoe UI", 9.7F, System.Drawing.FontStyle.Bold);
             this.rentalTimeBtn.ForeColor = System.Drawing.Color.White;
             this.rentalTimeBtn.Location = new System.Drawing.Point(0, 67);
             this.rentalTimeBtn.Margin = new System.Windows.Forms.Padding(2);
@@ -59,6 +60,7 @@
             this.rentedCarsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.rentedCarsBtn.FlatAppearance.BorderSize = 0;
             this.rentedCarsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rentedCarsBtn.Font = new System.Drawing.Font("Segoe UI", 9.7F, System.Drawing.FontStyle.Bold);
             this.rentedCarsBtn.ForeColor = System.Drawing.Color.White;
             this.rentedCarsBtn.Location = new System.Drawing.Point(0, 0);
             this.rentedCarsBtn.Margin = new System.Windows.Forms.Padding(2);
