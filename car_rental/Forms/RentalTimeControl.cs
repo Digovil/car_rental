@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace car_rental.Forms
@@ -17,69 +16,55 @@ namespace car_rental.Forms
 
         private void StartTimer()
         {
-            UpdateRentalCounts();
-            updateTimer.Start();
+            UpdateRentalCounts(); // Llamada inicial para mostrar datos
+            updateTimer.Interval = 60000; // Configura el intervalo a 1 minuto
+            updateTimer.Tick += UpdateTimer_Tick; // Asegura la suscripción al evento Tick
+            updateTimer.Start(); // Inicia el temporizador
         }
 
         private void UpdateTimer_Tick(object sender, EventArgs e)
         {
-            UpdateRentalCounts();
+            UpdateRentalCounts(); // Actualiza los datos cada minuto
         }
 
         private void UpdateRentalCounts()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                conn.Open();
-
-                string dailyQuery = @"
-                    SELECT COUNT(*) 
-                    FROM ALQUILER 
-                    WHERE CAST(FECHA AS DATE) = CAST(GETDATE() AS DATE)";
-
-                using (SqlCommand dailyCmd = new SqlCommand(dailyQuery, conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    int dailyCount = (int)dailyCmd.ExecuteScalar();
-                    dailyRentalsLabel.Text = dailyCount.ToString();
-                }
+                    conn.Open();
 
-                string monthlyQuery = @"
-                    SELECT COUNT(*) 
-                    FROM ALQUILER 
-                    WHERE MONTH(FECHA) = MONTH(GETDATE()) 
-                    AND YEAR(FECHA) = YEAR(GETDATE())";
+                    // Consulta diaria
+                    string dailyQuery = @"
+                        SELECT COUNT(*) 
+                        FROM ALQUILER 
+                        WHERE CAST(FECHA AS DATE) = CAST(GETDATE() AS DATE)";
 
-                using (SqlCommand monthlyCmd = new SqlCommand(monthlyQuery, conn))
-                {
-                    int monthlyCount = (int)monthlyCmd.ExecuteScalar();
-                    monthlyRentalsLabel.Text = monthlyCount.ToString();
+                    using (SqlCommand dailyCmd = new SqlCommand(dailyQuery, conn))
+                    {
+                        int dailyCount = (int)dailyCmd.ExecuteScalar();
+                        dailyRentalsLabel.Text = dailyCount.ToString();
+                    }
+
+                    // Consulta mensual
+                    string monthlyQuery = @"
+                        SELECT COUNT(*) 
+                        FROM ALQUILER 
+                        WHERE MONTH(FECHA) = MONTH(GETDATE()) 
+                        AND YEAR(FECHA) = YEAR(GETDATE())";
+
+                    using (SqlCommand monthlyCmd = new SqlCommand(monthlyQuery, conn))
+                    {
+                        int monthlyCount = (int)monthlyCmd.ExecuteScalar();
+                        monthlyRentalsLabel.Text = monthlyCount.ToString();
+                    }
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthlyRentalsCard_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dailyRentalsCard_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RentalTimeControl_Load(object sender, EventArgs e)
-        {
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error actualizando los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

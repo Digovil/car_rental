@@ -43,7 +43,6 @@
             this.dailyRentalsCard.Name = "dailyRentalsCard";
             this.dailyRentalsCard.Size = new System.Drawing.Size(187, 141);
             this.dailyRentalsCard.TabIndex = 0;
-            this.dailyRentalsCard.Paint += new System.Windows.Forms.PaintEventHandler(this.dailyRentalsCard_Paint);
             // 
             // labelDaily
             // 
@@ -77,7 +76,6 @@
             this.monthlyRentalsCard.Name = "monthlyRentalsCard";
             this.monthlyRentalsCard.Size = new System.Drawing.Size(187, 141);
             this.monthlyRentalsCard.TabIndex = 1;
-            this.monthlyRentalsCard.Paint += new System.Windows.Forms.PaintEventHandler(this.monthlyRentalsCard_Paint);
             // 
             // labelMonthly
             // 
@@ -126,7 +124,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RentalTimeControl";
             this.Size = new System.Drawing.Size(761, 540);
-            this.Load += new System.EventHandler(this.RentalTimeControl_Load);
             this.dailyRentalsCard.ResumeLayout(false);
             this.dailyRentalsCard.PerformLayout();
             this.monthlyRentalsCard.ResumeLayout(false);
