@@ -36,23 +36,42 @@ car_rental_db
 
 ### 1. Base de Datos
 
-#### Creación de Base de Datos y Esquema
+1.  Creación de Base de Datos y Esquema
 - Modelo entidad-relación implementado en SQL Server.
 - Se incorporaron campos adicionales a las entidades: `id_nombre_entidad` (autoincremental), `created_at` y `updated_at`.
 
 ![Modelo entidad-relación](https://github.com/user-attachments/assets/86d958d0-0f06-405d-ae7f-5fd444eb8a66)
 
 #### Consultas Principales
-1. **Número de alquileres de un carro desde una fecha específica.**
+2. **Número de alquileres de un carro desde una fecha específica.**
    - Consulta para contabilizar alquileres usando el campo `PLACA`.
-2. **Total de saldo en un día específico.**
+     ![image](https://github.com/user-attachments/assets/51280b53-eae3-4606-87db-65f6a5cff3c1)
+
+3. **Total de saldo en un día específico.**
    - Uso de `SUM` para calcular los resultados filtrados por fecha.
-3. **Relación entre entidades ALQUILER, CLIENTE y CARRO.**
+     ![image](https://github.com/user-attachments/assets/611c0679-2d0d-43f9-9e16-f545b11a488b)
+
+4. **Relación entre entidades ALQUILER, CLIENTE y CARRO.**
+     ![image](https://github.com/user-attachments/assets/c01f4207-b3d2-4a41-806a-e8d28fb5e777)
    - Uso de `JOIN` sin filtros adicionales.
-4. **Clientes que no han alquilado en un período específico.**
+     ![image](https://github.com/user-attachments/assets/1f45eb3c-1b61-4a3c-84c8-ff776ae4329a)
+
+5. **Clientes que no han alquilado en un período específico.**
    - Selección de cédulas y nombres en un rango de fechas.
-5. **Primer alquiler de un cliente.**
+     ![image](https://github.com/user-attachments/assets/656ca6c0-bc94-46ef-bc64-bf4bd71111af)
+     
+6. **Consulta específica en un rango de fecha.**
+
+   - En esta consulta se entiende que se debe realizar a partir de una fecha en adelante, por ende, obtiene información sobre los pagos realizados para alquileres desde el 2 de enero de 2025 en adelante
+     ![image](https://github.com/user-attachments/assets/4bb5d53e-8b54-4acb-8b96-2d532c4e8dc2)
+     
+7. **Consolidados por carro en un tiempo específico.**
+   - La consulta proporciona un resumen de los alquileres realizados entre el 2 y el 3 de enero de 2025, agrupados por cada carro. El alias CODCARRO tomó el valor del campo PLACAS.
+     ![image](https://github.com/user-attachments/assets/107f0aa1-22c3-41f7-b433-9386a0799c54)
+
+8. **Primer alquiler de un cliente.**
    - Consulta basada en la cédula del cliente como identificador único.
+     ![image](https://github.com/user-attachments/assets/2987ad06-5985-4b5e-9f83-88b247063837)
 
 #### Scripts Relevantes
 - `2025_01_01_0001_queries.sql`: Consultas detalladas.
