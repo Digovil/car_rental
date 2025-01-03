@@ -45,33 +45,41 @@ car_rental_db
 #### Consultas Principales
 2. **Número de alquileres de un carro desde una fecha específica.**
    - Consulta para contabilizar alquileres usando el campo `PLACA`.
-     ![image](https://github.com/user-attachments/assets/51280b53-eae3-4606-87db-65f6a5cff3c1)
+   
+   ![image](https://github.com/user-attachments/assets/51280b53-eae3-4606-87db-65f6a5cff3c1)
 
 3. **Total de saldo en un día específico.**
    - Uso de `SUM` para calcular los resultados filtrados por fecha.
-     ![image](https://github.com/user-attachments/assets/611c0679-2d0d-43f9-9e16-f545b11a488b)
+   
+   ![image](https://github.com/user-attachments/assets/611c0679-2d0d-43f9-9e16-f545b11a488b)
 
 4. **Relación entre entidades ALQUILER, CLIENTE y CARRO.**
-     ![image](https://github.com/user-attachments/assets/c01f4207-b3d2-4a41-806a-e8d28fb5e777)
+   ![image](https://github.com/user-attachments/assets/c01f4207-b3d2-4a41-806a-e8d28fb5e777)
+
    - Uso de `JOIN` sin filtros adicionales.
-     ![image](https://github.com/user-attachments/assets/1f45eb3c-1b61-4a3c-84c8-ff776ae4329a)
+     
+   ![image](https://github.com/user-attachments/assets/1f45eb3c-1b61-4a3c-84c8-ff776ae4329a)
 
-5. **Clientes que no han alquilado en un período específico.**
+6. **Clientes que no han alquilado en un período específico.**
    - Selección de cédulas y nombres en un rango de fechas.
-     ![image](https://github.com/user-attachments/assets/656ca6c0-bc94-46ef-bc64-bf4bd71111af)
      
-6. **Consulta específica en un rango de fecha.**
+   ![image](https://github.com/user-attachments/assets/656ca6c0-bc94-46ef-bc64-bf4bd71111af)
+     
+7. **Consulta específica en un rango de fecha.**
 
-   - En esta consulta se entiende que se debe realizar a partir de una fecha en adelante, por ende, obtiene información sobre los pagos realizados para alquileres desde el 2 de enero de 2025 en adelante
-     ![image](https://github.com/user-attachments/assets/4bb5d53e-8b54-4acb-8b96-2d532c4e8dc2)
+   - En esta consulta se entiende que se debe realizar a partir de una fecha en adelante, por ende, obtiene información sobre los pagos realizados para alquileres desde el 2 de enero de 2025 en adelante.
      
-7. **Consolidados por carro en un tiempo específico.**
+   ![image](https://github.com/user-attachments/assets/4bb5d53e-8b54-4acb-8b96-2d532c4e8dc2)
+     
+8. **Consolidados por carro en un tiempo específico.**
    - La consulta proporciona un resumen de los alquileres realizados entre el 2 y el 3 de enero de 2025, agrupados por cada carro. El alias CODCARRO tomó el valor del campo PLACAS.
-     ![image](https://github.com/user-attachments/assets/107f0aa1-22c3-41f7-b433-9386a0799c54)
+     
+   ![image](https://github.com/user-attachments/assets/107f0aa1-22c3-41f7-b433-9386a0799c54)
 
-8. **Primer alquiler de un cliente.**
-   - Consulta basada en la cédula del cliente como identificador único.
-     ![image](https://github.com/user-attachments/assets/2987ad06-5985-4b5e-9f83-88b247063837)
+9. **Primer alquiler de un cliente.**
+   - Consulta basada en la cédula del cliente como identificador único
+   
+   ![image](https://github.com/user-attachments/assets/2987ad06-5985-4b5e-9f83-88b247063837)
 
 #### Scripts Relevantes
 - `2025_01_01_0001_queries.sql`: Consultas detalladas.
