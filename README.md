@@ -68,19 +68,19 @@ Desarrollado en C# .NET Framework, cuenta con las siguientes características:
 1. **Vista con información de la consulta 1.4.**
    - Tabla que muestra los registros relacionados mediante un sidebar con opciones.
 
-   ![Vista de la consulta 1.4](https://raw.githubusercontent.com/Digovil/car_rental/refs/heads/main/captures/capture_001.png)
+   ![Vista de la consulta 1.4](https://github.com/user-attachments/assets/90782246-cb57-4389-9e23-52590e0ef1a7)
 
 2. **Filtro por fecha inicial y final de alquiler.**
    - Actualización dinámica de la información mostrada en la tabla.
 
-   ![Filtro por fechas](https://raw.githubusercontent.com/Digovil/car_rental/refs/heads/main/captures/capture_002.png)
+   ![Filtro por fechas](https://github.com/user-attachments/assets/31804282-4f47-4053-b69e-b66c75373577)
 
 3. **Vista de alquileres por día y por mes.**
    - Actualización automática cada minuto para mostrar datos en tiempo real.
 
-   ![Vista de alquileres por tiempo](https://raw.githubusercontent.com/Digovil/car_rental/refs/heads/main/captures/capture_003.png)
-
+   ![Vista de alquileres por tiempo](https://github.com/user-attachments/assets/0a3366bd-cbcc-4c0e-a471-f91501b4653e)
 ---
+
 
 ## Instrucciones de Uso
 
@@ -92,5 +92,6 @@ Desarrollado en C# .NET Framework, cuenta con las siguientes características:
 1. Correr la base de datos utilizando el script situado en el directorio `backup/`.
 2. Configurar y ejecutar el aplicativo de escritorio desde el proyecto C#.
 
-![Ejecución del aplicativo](https://raw.githubusercontent.com/Digovil/car_rental/refs/heads/main/captures/capture_005.gif)
+### Aplicativo Tuncionando
+![Ejecución del aplicativo](https://github.com/user-attachments/assets/131b6bd8-742b-4bdf-977c-e07409c56eb3)
 
