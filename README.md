@@ -92,6 +92,6 @@ Desarrollado en C# .NET Framework, cuenta con las siguientes características:
 1. Correr la base de datos utilizando el script situado en el directorio `backup/`.
 2. Configurar y ejecutar el aplicativo de escritorio desde el proyecto C#.
 
-### Aplicativo Tuncionando
+### Aplicativo Funcionando
 ![Ejecución del aplicativo](https://github.com/user-attachments/assets/131b6bd8-742b-4bdf-977c-e07409c56eb3)
 
